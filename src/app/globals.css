@@ -1,0 +1,709 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+/* ===========================
+   DESIGN SYSTEM VARIABLES
+   =========================== */
+
+@theme inline {
+  /* FONTS */
+  --font-archivo: var(--font-archivo);
+  --font-poppins: var(--font-poppins);
+
+  /* PRIMARY COLORS (Blue) */
+  --color-primary-100: #90d6ff;
+  --color-primary-200: #30b0ff;
+  --color-primary-300: #008dcb;
+
+  /* NEUTRAL COLORS (Grays) */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #c3c3c3;
+  --color-neutral-300: #888888;
+  --color-neutral-400: #444444;
+  --color-neutral-500: #111111;
+
+  /* FEEDBACK COLORS */
+  --color-error: #ff374e;
+  --color-warning: #ffe943;
+  --color-success: #11c16b;
+
+  /* BACKGROUND COLORS */
+  --color-background: #0a0a0a;
+  --color-background-secondary: #111111;
+  --color-background-tertiary: #1a1a1a;
+  
+
+  /* TEXT COLORS */
+  --color-foreground: #ffffff;
+  --color-foreground-secondary: #c3c3c3;
+  --color-foreground-tertiary: #888888;
+  --color-blue-heading: #38B6FF;
+
+  /* SPACING SCALE */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+  --spacing-3xl: 6rem;     /* 96px */
+
+  /* BORDER RADIUS */
+  --radius-sm: 0.5rem;     /* 8px */
+  --radius-md: 0.75rem;    /* 12px */
+  --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
+  --radius-2xl: 2rem;      /* 32px */
+
+  /* SHADOWS */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(48, 176, 255, 0.3);
+
+  /* TYPOGRAPHY SIZES */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+  --font-size-6xl: 3.75rem;    /* 60px */
+  --font-size-7xl: 4.5rem;     /* 72px */
+
+  /* BREAKPOINTS (for reference) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ===========================
+   BASE STYLES
+   =========================== */
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+  :root {
+      --color-primary: #111111; /* Example primary color */
+      --color-secondary: #7630a1; /* Example secondary color */
+      --color-accent: #ff8c00; /* Example accent color */
+    
+
+    }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   TYPOGRAPHY
+   =========================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, var(--font-size-7xl));
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, var(--font-size-6xl));
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, var(--font-size-5xl));
+}
+
+p {
+  font-family: var(--font-poppins), sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===========================
+   LINKS
+   =========================== */
+
+a {
+  color: var(--color-primary-200);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary-100);
+}
+
+/* ===========================
+   FOCUS STYLES (Accessibility)
+   =========================== */
+
+   @keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 1ms linear infinite;
+  will-change: transform;
+}
+
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary-200);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===========================
+   TEXT SELECTION
+   =========================== */
+
+::selection {
+  background-color: var(--color-primary-200);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary-200);
+  color: white;
+}
+
+/* ===========================
+   IMAGES
+   =========================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===========================
+   SCROLLBAR STYLING
+   =========================== */
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-500);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-300);
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+
+/* Text Balance (prevents orphans) */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-200), var(--color-primary-100));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container */
+.container-custom {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/*
+  Responsive container with custom side padding variable.
+  Use the class `container-200` on a wrapper to get responsive left/right
+  padding that becomes 200px on large screens while remaining smaller on mobile.
+*/
+.container-200 {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* fallback value if variable is not set */
+  padding-left: var(--container-pad, 1rem);
+  padding-right: var(--container-pad, 1rem);
+}
+
+/* Set the CSS custom property per breakpoint */
+@media (min-width: 640px) {
+  .container-200 {
+    --container-pad: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-200 {
+    --container-pad: 2rem; /* medium desktops: keep moderate padding */
+  }
+}
+
+/* Specific larger breakpoints requested by project: */
+@media (min-width: 1440px) {
+  .container-200 {
+    --container-pad: 100px; /* at 1440w -> 100px padding */
+  }
+}
+
+@media (min-width: 1980px) {
+  .container-200 {
+    --container-pad: 200px; /* at 1980w -> 200px padding */
+  }
+}
+
+/* Section Padding */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section Label */
+.section-label {
+  color: var(--color-primary-200);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-label {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ===========================
+   COMPONENT STYLES
+   =========================== */
+
+/* Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-200);
+  outline-offset: 2px;
+}
+
+/* Button Primary */
+.btn-primary {
+  background-color: var(--color-primary-200);
+  color: white;
+  box-shadow: 0 0 20px rgba(48, 176, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-300);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 25px rgba(48, 176, 255, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Button Secondary */
+.btn-secondary {
+  background-color: var(--color-neutral-400);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-neutral-300);
+}
+
+/* Input Fields */
+.input {
+  width: 100%;
+  background-color: var(--color-neutral-500);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  color: var(--color-foreground);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: var(--font-size-base);
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: var(--color-neutral-300);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary-200);
+  box-shadow: 0 0 0 3px rgba(48, 176, 255, 0.1);
+}
+
+/* Textarea */
+textarea.input {
+  resize: none;
+  min-height: 120px;
+}
+
+/* Card */
+.card {
+  background-color: var(--color-neutral-500);
+  border-radius: var(--radius-2xl);
+  padding: 1.5rem;
+  border: 1px solid var(--color-neutral-400);
+  box-shadow: var(--shadow-xl);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Navbar styles */
+.navbar {
+  background: transparent;
+  height: 64px;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: none;
+}
+
+.nav-logo {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-logo::after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 6px;
+  background: var(--color-primary-200);
+  margin-left: 8px;
+  border-radius: 1px;
+}
+
+/* Neon outlined CTA button used in navbar */
+.nav-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  color: var(--color-foreground);
+  background: transparent;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.nav-cta::before,
+.nav-cta::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.nav-cta::before {
+  border: 2px solid #00eaff; /* cyan */
+  transform: translate(6px, -6px);
+}
+
+.nav-cta::after {
+  border: 2px solid #ff00c8; /* magenta */
+  transform: translate(-6px, 6px);
+}
+
+.nav-cta > svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* ===========================
+   LOADING STATES
+   =========================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-400) 25%,
+    var(--color-neutral-300) 50%,
+    var(--color-neutral-400) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ===========================
+   FORM ELEMENTS
+   =========================== */
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Checkbox & Radio styling */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-primary-200);
+  cursor: pointer;
+}
+
+/* ===========================
+   RESPONSIVE UTILITIES
+   =========================== */
+
+/* Hide on mobile, show on desktop */
+@media (max-width: 1023px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Hide on desktop, show on mobile */
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* ===========================
+   PRINT STYLES
+   =========================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+}

@@ -36,7 +36,7 @@ export default function RootLayout({
         <div className="bg-[var(--color-primary)] relative min-h-screen">
           
           {/* Vertical lines - completely separate, lowest layer with FIXED positioning */}
-          <div className="fixed mx-[200px] inset-0 pointer-events-none z-[25]">
+          <div className="fixed mx-[200px] inset-0 pointer-events-none z-[25] hidden sm:block">
             <div className="absolute top-0 left-0 h-full w-[1px] bg-white opacity-10" />
             <div className="absolute top-0 left-1/3 h-full w-[1px] bg-white opacity-10" />
             <div className="absolute top-0 left-2/3 h-full w-[1px] bg-white opacity-10" />

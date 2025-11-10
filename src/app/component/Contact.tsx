@@ -170,20 +170,24 @@ export default function Contact() {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center pt-4 sm:pt-6">
-            <div className="relative inline-block p-[2px]">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="relative px-5 py-2.5 sm:px-6 sm:py-3 text-black font-bold text-[10px] sm:text-xs tracking-widest uppercase flex items-center gap-2 bg-white disabled:opacity-50 transition-all hover:scale-105"
-              >
-                {isSubmitting ? 'Sending...' : 'Connect With Us'}
-                <ArrowUpRightIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                <span className="absolute top-0 left-0 w-[calc(100%-4px)] h-[calc(100%-4px)] border-t-[4px] sm:border-t-[4px] border-l-[4px] sm:border-l-[4px] border-cyan-400 pointer-events-none"></span>
-                <span className="absolute bottom-0 right-0 w-[calc(100%-4px)] h-[calc(100%-4px)] border-b-[4px] sm:border-b-[4px] border-r-[4px] sm:border-r-[4px] border-pink-500 pointer-events-none"></span>
-              </button>
-            </div>
-          </div>
+       <div className="flex justify-center pt-4 sm:pt-6">
+  <div className="relative inline-block">
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className="relative px-5 py-2.5 sm:px-6 sm:py-3 text-black font-bold text-[10px] sm:text-xs tracking-widest uppercase flex items-center gap-2 bg-white disabled:opacity-50 transition-all hover:scale-105"
+    >
+      {isSubmitting ? 'Sending...' : 'Connect With Us'}
+      <ArrowUpRightIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+
+      {/* Cyan border - top-left */}
+      <span className="absolute -top-[6px] -left-[6px] w-[calc(100%-4px)] h-[calc(100%-4px)] border-t-[6px] border-l-[6px] border-cyan-400 pointer-events-none"></span>
+
+      {/* Pink border - bottom-right */}
+      <span className="absolute -bottom-[6px] -right-[6px] w-[calc(100%-4px)] h-[calc(100%-4px)] border-b-[6px] border-r-[6px] border-pink-500 pointer-events-none"></span>
+    </button>
+  </div>
+</div>
         </form>
 
         {/* Footer Text */}
